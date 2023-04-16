@@ -1,0 +1,396 @@
+---
+title: "Midterm Project"
+author: 
+  -     Çakmak, Ahmet Hamdi[^1]
+bibliography: ../bibliography/biblio.bib
+csl: ../csl/apa.csl
+header-includes:
+  - \usepackage{polyglossia}
+  - \setmainlanguage{english}
+  - \usepackage{booktabs}
+  - \usepackage{caption} 
+  - \captionsetup[table]{skip=10pt}
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    fig_height: 3
+    fig_width: 4
+    keep_tex: no
+    latex_engine: xelatex
+    number_sections: yes
+    toc: no
+geometry: margin=1in
+link-citations: yes
+urlcolor: blue
+fontsize: 12pt
+biblio-style: apalike
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+<!-- ======================================================================= -->
+<!-- ============================== FOOTNOTES ============================== -->
+<!-- ======================================================================= -->
+[^1]: 20080382, [Github Repo](https://github.com/ahmethamdicakmak/midterm)
+
+# Important Information About Midterm
+
+\colorbox{BurntOrange}{https://github.com/ahmethamdicakmak/midterm.git}
+
+**Project Proposal submisson will be done by uploading a zip file to the ekampus system along with the Github repo link. If you do not upload a zip file to the system and do not provide a Github repo link, you will be deemed not to have entered the midterm and final exams.**
+
+**You must upload your project folder (`YourStudentID.zip` file) to *ekampus.ankara.edu.tr* until 16 April 2023, 23:59.**
+
+\colorbox{WildStrawberry}{Read the README.md file in the project folder for more information.}
+
+# Introduction
+The article discusses the global burden of bacterial infections and highlights the lack of comprehensive estimates covering all locations and major infectious syndromes, particularly in low-income and middle-income countries. The authors present the first global estimates of deaths associated with 33 clinically significant bacterial pathogens, both susceptible and resistant to antimicrobials, across 11 infectious syndromes in 2019. They used data from the Global Burden of Diseases, Injuries, and Risk Factors Study and the Global Burden of Antimicrobial Resistance 2019 study to estimate global, regional, and national mortality and years of life lost associated with these 33 bacterial pathogens across 204 countries and territories and 286 underlying causes of death, by age and sex, in 2019. The authors emphasize the importance of reducing the number of deaths due to infections to achieve health equity and the Sustainable Development Goal of ensuring healthy lives and promoting wellbeing for all.
+
+
+## Literature Review
+
+In this study, we estimated the fatal burden associated with infection caused by 33 bacterial species or genera across 11 infectious syndromes using methods and data from the GBD 2019 and Global Burden of Antimicrobial Resistance studies.3, 19 Detailed methods have been published elsewhere.19 Briefly, using 343 million individual records or isolates covering 11 361 study-location-years, we implemented three modelling steps to estimate the number of deaths associated with each bacterial pathogen across 204 countries and territories for 2019. First, we estimated the overall number of deaths in which infection had a role using methods described in the Global Burden of Antimicrobial Resistance study.19 Second, we determined the infectious syndrome responsible for each death due to an infection. Finally, for each infectious syndrome we estimated the distribution of pathogens responsible. With the use of these components, we estimated the number of deaths associated with each of the 33 bacterial pathogens of interest in this study. A summarising flowchart and detailed approach description for each step of the estimation process are in appendix 1 (section 10). All estimates were produced by age, for males and females, and for 204 countries and territories.
+
+We followed Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines21 throughout the study (detailed in appendix 1 [section 7]). This study complies with the Guidelines for Accurate and Transparent Health Estimates Reporting (GATHER) recommendations.22 The complete GATHER checklist is provided in appendix 1 (section 8).
+
+Input data
+We used a subset of the input data described in the Global Burden of Antimicrobial Resistance study to estimate mortality burden by pathogen.19 We selected data inputs only if they were based on a representative sampling framework that would not bias the aetiology estimation towards a specific pathogen (eg, we did not deliberately sample 100 cases of every pathogen). The input data source types that met these criteria were: multiple-cause-of-death and vital registration data; hospital discharge data; linkage data sources; mortality surveillance in the Child Health and Mortality Prevention Surveillance (CHAMPS) study; literature reviews of the microbial cause of meningitis, neonatal sepsis, lower respiratory infections, urinary tract infections, skin infections, peritonitis, and bone and joint infections; and laboratory-based passive surveillance data. We used multiple-cause-of-death and vital registration data, hospital discharge data, CHAMPS, and linkage data sources to estimate the number of deaths for which infection had a role and the distribution of infectious syndromes (appendix 1 [section 4]). We used data from CHAMPS, literature reviews, and laboratory-based passive surveillance systems to estimate the pathogen distribution for each infectious syndrome (appendix 1 [section 6]). The number of individual records or isolates used in each step for each of the GBD regions is shown in appendix 1 (p 62).
+
+Deaths in which infection played a role
+Detailed methods on how the number of deaths in which infection played a role were estimated have been published previously.4 Briefly, we estimated the number of deaths for which either the underlying cause of death was infectious (using GBD 2019 estimates) or for which a contributing factor in the death was sepsis and the underlying cause was non-infectious. For the identification of sepsis in non-infectious underlying causes of death, we used the following data inputs: 121 million cause-of-death records with multiple-cause-of-death data from eight countries and territories; 192 million hospital records with patient discharge status from seven countries and territories; 264 000 multiple-cause-of-death records linked to hospital records from ten countries and territories; and 849 deaths from CHAMPS sites across six countries. We developed a random-effects logistic regression model to predict the fraction of deaths involving sepsis for each underlying cause of death, age, sex, and geographical location using methods described previously.4, 19 Using this cause-fraction, we estimated the number of deaths for which the underlying cause was non-infectious and sepsis occurred. We then added this to the number of deaths in which the underlying cause was infectious from GBD 2019 to estimate the number of deaths in which infection had a role.
+
+Infectious syndrome estimates
+Detailed methods on the estimation process for infectious syndromes have been published previously19 and are in appendix 1 (section 4). Briefly, we used the available data described in the Input data section (multiple cause of death, hospital data with patient discharge status, linkage data, and CHAMPS) to determine the infectious syndrome responsible for sepsis by underlying cause, age, sex, and geographical location. Within our modelling framework, an infectious syndrome is the infection directly responsible for sepsis and serves as the bridge between the underlying cause of death and sepsis. We estimated 11 infectious syndromes: meningitis and other bacterial CNS infections; cardiac infections; peritoneal and intra-abdominal infections; lower respiratory infections and all related infections in the thorax; bacterial infections of the skin and subcutaneous systems; infections of bones, joints, and related organs; typhoid, paratyphoid, and invasive non-typhoidal Salmonella; diarrhoea; urinary tract infections and pyelonephritis; bloodstream infections; and gonorrhoea and chlamydia. We then used syndrome-and-age-specific mixed effects logistic regression models (using sex, Healthcare Access and Quality Index, and syndrome-specific bias covariates and a nested random effect on underlying cause) to estimate the fraction of sepsis-related deaths that were caused by each infectious syndrome for each underlying cause of death, age, sex, and geographical location. Applying this fraction to the estimate of number of infection-related deaths from the previous step, we determined the number of deaths that occurred due to a given infectious syndrome by underlying cause of death, age, sex, and geographical location. We estimated deaths with an infectious syndrome as the sum of deaths with the syndrome as an underlying cause of death (ie, for those syndromes considered to be underlying causes) plus deaths with a non-infectious underlying cause where the syndrome was estimated to occur (eg, all deaths where the underlying cause was meningitis plus all road traffic injury deaths in which meningitis occurred). Bloodstream infections; infections of bones, joints, and related organs; and peritoneal and intra-abdominal infections are not estimated in GBD, so for these three infectious syndromes, we assumed they had a non-infectious underlying cause to estimate deaths.
+
+Pathogen distribution
+Detailed methods on the estimation process for pathogen distribution have been published previously19 and are in appendix 1 (sections 5 and 6), including exceptions and special handling decisions. Briefly, we used data from 343 million isolates covering 11 361 study-location-years to estimate pathogen distributions for each infectious syndrome that varied by age and location, with a subset of this data adapted to calculate pathogen-specific and syndrome-specific case-fatality ratios (CFRs). We selected a set of pathogens to be explicitly estimated as part of the cause of each infectious syndrome. This selection was based on several factors. First, selection was influenced by the prevalence of each pathogen in the raw data, because the amount of available data restricts the number of pathogens that can be estimated successfully. Second, we aimed to produce estimates for the combination of pathogens that, collectively, represented at least 85% of the aetiological causes of a given infectious syndrome. We included three residual categories: (1) other bacteria and (2) polymicrobial—for bacteria that did not meet these criteria or had two or more bacteria isolated from a single isolate—and (3) non-bacterial pathogen, for pathogens that were not bacteria (ie, viruses, fungi, or parasites).
+
+Much of the input data on pathogen distribution were only reported on a subset of pathogens, such that they did not have a complete denominator for all possible pathogens. For example, many surveillance systems for meningitis only monitor S pneumoniae and Neisseria meningitidis as the causative pathogen. To account for this partial distribution, we used a network meta-analysis, which allowed us to include any dataset reporting on two or more pathogens. We implemented this network meta-analysis using the multinomial estimation with partial and composite observations (MEPCO) modelling environment. This approach allowed us to include covariates in the network analysis, incorporate Bayesian priors (ie, prior probability distributions), and use data that compared one pathogen with all other pathogens. Input data for the MEPCO process consisted of ratios of sums of cases within a study (with each sum representing a specific pathogen or combination of pathogens). The model was fit by minimising the sum of the residuals between log-transformed observed ratios and predictions using a non-linear likelihood minimisation problem optimised using the Gauss-Newton method23 (appendix 1 [section 6.3.1]). The resultant MEPCO estimate was the non-fatal pathogen distribution for each infectious syndrome.
+
+To estimate the fatal pathogen distribution, we calculated syndrome-specific and pathogen-specific CFRs using data that linked pathogen-specific disease incidence to deaths and the meta-regression–Bayesian regularised, trimmed (MR-BRT) tool. We estimated CFRs as a function of age, Healthcare Access and Quality Index, and various bias covariates that were specific to the nuances of the data for each infectious syndrome (appendix 1 [section 5]). We then used the pathogen-specific and syndrome-specific CFRs to produce a pathogen distribution of number of deaths estimated for each infectious syndrome by age and location. Our modelling framework accounted for both data-rich and data-sparse pathogens (appendix 1 [section 5.3]). In this analysis we do not report estimates for Mycobacterium tuberculosis because this specific pathogen is already part of a global strategy with well delineated surveillance and data-driven control plans, and the motivation for the current study was to provide insight into the public health burden of less well studied pathogens.
+
+Estimating mortality and YLLs
+To estimate the number of deaths due to the pathogens of interest, we multiplied the number of deaths for each underlying cause, age, sex, and location by the fraction of deaths in which infection had a role, the fatal infectious syndrome fraction, and the pathogen fraction, and summed across all underlying causes of death and infectious syndromes to estimate the number of deaths due to a given pathogen by age, sex, and location. We estimated YLLs associated with each pathogen using previously published methods3 that convert age-specific deaths into YLLs using the standard counterfactual life expectancy at each age.
+
+Uncertainty and validity analysis
+Following standard GBD methods,16 we propagated uncertainty from each step of the analysis into the final estimates of deaths associated with each pathogen by taking the 2·5th and 97·5th percentiles of 1000 draws from the posterior distribution of each quantity of interest. To assess model validity, we calculated the root mean square error and coefficient of determination (R2) for each pathogen distribution model in proportion space for both in-sample and out-of-sample predictions (appendix 1 [section 6.5]).
+
+Role of the funding source
+The funders of the study had no role in study design, data collection, data analysis, data interpretation, or the writing of the report.
+
+Results
+In 2019, there were an estimated 13·7 million (95% UI 10·9–17·1) infection-related deaths globally, with 7·7 million (5·7–10·2) deaths associated with the 33 bacterial pathogens we investigated. These bacteria altogether were associated with 13·6% (10·2–18·1) of all global deaths in 2019 and 56·2% (52·1–60·1) of all infection-related deaths for that year. The all-age mortality rate was 99·6 deaths (74·2–132) per 100 000 population collectively for these pathogens. Only one organism, Staphylococcus aureus, was associated with more than 1 million deaths in 2019 (1 105 000 deaths [816 000–1 470 000]; table). Four additional pathogens were associated with more than 500 000 deaths each in 2019; these were Escherichia coli, S pneumoniae, Klebsiella pneumoniae, and Pseudomonas aeruginosa (table, figure 1A). These five leading pathogens were associated with 30·9% (28·6–33·1) of all infection-related deaths and were responsible for 54·9% (52·9–56·9) of all deaths among the investigated bacterial pathogens. Of the bacteria estimated, Morganella spp, Providencia spp, and Neisseria gonorrhoeae had the fewest associated deaths (table). There were 304 million (234–392) YLLs associated with the 33 bacterial pathogens globally in 2019, representing 18·1% (14·1–22·8) of the global YLLs for the year.
+
+Discussion
+To our knowledge, this is the first study to provide global estimates on mortality and YLLs for a wide range of bacterial genera and species across 11 major infectious syndromes. We found that, collectively, the 33 analysed bacteria were associated with 7·7 million (95% UI 5·7–10·2) deaths in 2019, with an all-age mortality rate of 99·6 deaths (74·2–132) per 100 000 population. These bacteria were involved in 13·6% (10·1–18·1) of global deaths in 2019 and, compared with Level 3 GBD underlying causes of death, would rank as the second leading cause of death globally, behind ischaemic heart disease.3 Individually, four pathogens were associated with more than 750 000 deaths and 30 million YLLs globally in 2019, and their ranks as leading Level 3 causes of death in 2019 would be as follows: S aureus would rank as the 15th, E coli as the 18th, S pneumoniae as the 20th, and K pneumoniae as the 21st leading Level 3 cause of death. There was considerable variation in the burden of bacterial infections, with the greatest number of deaths occurring in the sub-Saharan Africa super-region, where we clearly saw the effect of both Gram-positive and Gram-negative pathogens. The disparate burden in sub-Saharan Africa is magnified by the substantial YLL burden associated with these bacteria in this super-region compared with other super-regions.
+
+By estimating mortality and YLLs for a broad range of pathogens and infectious syndromes, we have produced a global account of bacteria for which the burden was previously unknown and, perhaps, underappreciated. More than half of bacterial deaths in our study were caused by one of five pathogens: S aureus, E coli, S pneumoniae, K pneumoniae, and P aeruginosa. Of these pathogens, only S pneumoniae has been the focus of global surveillance and public health initiatives.19, 24 Although infectious diseases like HIV/AIDS, tuberculosis, and neglected tropical diseases each have their own SDG indicators (eg, SDG 3.3) and have substantial global public health investment (eg, The Global Fund to Fight AIDS, Tuberculosis and Malaria), the bacterial pathogens we found to be associated with a greater fatal burden are not a major focus of any global public health initiatives. Only recently have there been calls to expand the scope of The Global Fund to include more common bacteria, although in the context of antimicrobial resistance.25 S aureus was the leading bacterial pathogen in most countries and was the only pathogen associated with more than 1 million deaths and 34 million YLLs globally, yet there is no global public health investment directed at S aureus. Instead, S aureus is included in surgical site infection prevention26 and antimicrobial resistance initiatives,27 which focus on methicillin-resistant S aureus (known as MRSA), despite the fact that strains with such resistance comprise only a subset of the S aureus burden. Although WHO prioritised S aureus in 2014 as one of the seven bacteria of international concern, this was in the context of antimicrobial resistance and little has been done regarding the susceptible S aureus burden.28 Similarly, E coli and K pneumoniae are collectively associated with more deaths and YLLs than S pneumoniae or tuberculosis,29 yet they receive comparatively little public health attention relative to their burden, and minimal research funding relative to other diseases with a comparable, or lower, burden. A 2020 analysis of global funding for infectious disease research found that HIV research was awarded US$42 billion in funding compared with $1·4 billion for research on Staphylococcus spp and $800 million for E coli research over the same period (between 2000 and 2017).30 The investments in HIV research are certainly warranted and, although bacterial infections could be tackled with different overlapping strategies, this disparity in funding might have been driven, in part, by the shortage of global burden numbers for these bacterial pathogens.
+
+The 33 bacterial agents investigated as part of this study comprise a significant cause of health loss globally, and strategies to address this substantial burden cover a wide range of interventions. First, infection prevention is the foundation to reducing the burden of infections. Infection prevention broadly includes in-hospital programmes aimed at reducing hospital-acquired infection,31 and community programmes that focus on health education, management of malnutrition in LMICs, and the core principles of access to clean water, sanitation, and hygiene.32, 33 Second, vaccination can have a substantial effect on the burden of bacterial infections through a number of routes. Implementation and uptake of vaccines for bacteria like S pneumoniae can directly reduce the burden of bacterial infections, and new generations of vaccines will target older age groups that we have found are significantly affected by this bacterial agent.16 Beyond this, uptake of vaccination for non-bacterial infections like influenza, where bacterial superinfection is a common complication, can also reduce the burden of bacterial infections.34 Additionally, vaccine development is crucial for bacteria for which no vaccine exists, and these estimates could help set vaccine development priorities.9 However, issues on how to tackle the bacteria that can be present as commensal microbiota have to be considered. For example, the alteration of commensal bacteria can influence susceptibility to gastrointestinal diseases, which might be an issue when developing a vaccine against E coli; different biology and vaccinology approaches hold the promise of resolving this conundrum.35 Third, availability of basic acute care services can reduce the number of deaths associated with these bacterial infections. Such services include timely access to appropriate antibiotics, microbiological capacity to identify the responsible pathogen of an infection, and provision of supportive care.36, 37 Finally, a strategic approach and ample investment in the development of new and effective antibiotics are essential to face the increasing threat posed by bacterial antimicrobial resistance and bacterial infections in general.38
+
+Effective antimicrobials exist for all 33 of the investigated bacteria, yet much of the disproportionately high burden in LMICs might be attributable to inadequate access to effective antimicrobials, weak health systems, and insufficient prevention programmes.39, 40 Many barriers to accessing these effective antimicrobials have been described. First, health-care-seeking behaviours are impeded by high out-of-pocket costs, driven by deficiencies in government funding for health and unaffordable drug prices in LMICs.41 Second, unwarranted antibiotic use caused by poor education of health-care providers, regulatory issues, self-medication, and restricted availability of antibiotics can lead to the wrong antimicrobial being prescribed, which, if too broad, can promote resistance and, if ineffective, risks progression of infection.41 Third, unstable supply chains and poor quality control can result in the desired antibiotic being unavailable or the dissemination of substandard or counterfeit antimicrobials to the consumer.42 Improving access to antibiotics requires a nuanced and location-specific response because ease of access must be weighed against risk of antibiotic overuse (a problem compounded by the issue of self-medication in LMICs),43 which contributes to the increase in antimicrobial resistance.44 Furthermore, the use of antibiotics in animal husbandry must be taken into account.44 In this study, we addressed the overall burden of infections both susceptible and resistant to antimicrobials, but our previous study19 highlighted the issue of resistance and its compounding effect on mortality rates. We argue that robust surveillance mechanisms in conjunction with these types of studies will be indispensable to understand the true burden of bacterial infections.
+
+Three syndromes are responsible for more than 75% of the estimated 7·7 million bacteria-related deaths that occurred in 2019. Lower respiratory infections, bloodstream infections, and peritoneal and intra-abdominal infections would rank as the third, seventh, and 13th leading causes of death globally for 2019, respectively, all ahead of other causes such as HIV, colorectal cancer, or self-harm. Lower respiratory infections have long been a global health priority,45 and bloodstream infections have arguably been included in the umbrella of more recent global sepsis initiatives;46, 47 however, intra-abdominal infections and peritonitis do not receive the same attention as other diseases with similar or lower fatal burden. Although overlap exists in the management of peritoneal and intra-abdominal infections with other bacterial infections (eg, antibiotics and identification of the infection's source), management of peritoneal and intra-abdominal infections poses unique challenges in that radiological imaging is often required to establish a source and surgical intervention might be needed to achieve source control.48 There is a substantial shortage of medical capacity and trained personnel in many LMICs to address peritoneal and intra-abdominal infections and other infections that require surgical intervention.49 Recent estimates suggest 4·8 billion people do not have access to timely surgical services, with low-income countries estimated to have fewer than one provider per 100 000 population.50 Compounding inadequate access to surgical services is the restricted availability of diagnostic radiology, with a recent analysis of ten LMICs across the Caribbean, South Asia, and sub-Saharan Africa finding that CT was available in only 6% of hospitals and ultrasound was available in only 50% of hospitals.51
+
+The remarkable geographical variation of responsible pathogens for a given infectious syndrome is highlighted by S aureus as the causative pathogen of bloodstream infection. In the high-income super-region, S aureus caused 23% of deaths due to bloodstream infections that involved one of the 33 bacteria investigated, compared with only 5% of deaths due to bloodstream infections in the sub-Saharan Africa super-region. This variation has profound implications on the empirical management of infections when a responsible pathogen has not yet been identified and breadth of coverage must be balanced against risk of antibiotic resistance. The WHO essential medicines list provides global empirical antibiotic recommendations for various infectious syndromes;52 however, our findings suggest that a move towards region-specific empirical antibiotic recommendations might be more appropriate from an antibiotic stewardship and antimicrobial efficacy standpoint.53 Region-specific guidance will also help in addressing inappropriate antibiotic use in LMICs, which is one of the key drivers of antimicrobial resistance.43 We hope that these estimates might be used to guide empirical antibiotic use, yet data sparsity remains a major limitation in creating more granular estimates with sufficient confidence to inform individual clinicians in accordance with clinical needs and the aim to uphold antimicrobial stewardship.54
+
+We should also acknowledge M tuberculosis, which was not included in our analysis. One reason we did not do additional estimations for this important pathogen is because the global burden estimates provided by GBD 2019 and WHO are quite concordant and well established.29, 55 A GBD study has shown that, in 2019, there were 9·65 million incident cases and 1·21 million deaths due to tuberculosis in both HIV-negative and HIV-positive individuals.29 There was also a greater incidence and an excess burden in males, which is comparable with the burden of bacterial agents estimated in this study. Geographically, most cases of tuberculosis in 2019 were found in the WHO regions of South-East Asia, Africa, and the Western Pacific,29, 55 which is comparable with the geographical spread of the burden of the 33 bacteria we investigated in this study.
+
+Insufficient microbiological capacity has substantial effects on both population health estimates and the clinical care of individual patients. Correspondingly, an urgent need exists to build microbiology laboratory networks and develop innovative surveillance strategies.56 Identification of a responsible pathogen in sepsis and other severe infections can help inform optimal antibiotic choice and duration, and lead clinicians to probable sources of infection. Without microbiological data, patients might remain on inappropriate or ineffective antibiotics that contribute to worse health outcomes and fuel the spread of antimicrobial resistance. Practical antibiotic prescribing is also affected because the distribution of pathogens and local patterns of antimicrobial susceptibility are unknown, which hamper the development of dependable treatment protocols. In a recent study,51 investigators found that fewer than half of hospitals in ten LMICs had the capacity to do Gram staining, and we speculate that even fewer hospitals in this context could perform cultures and susceptibility testing.51 Many locations have little or no microbiology data to inform local burden estimates, and so they must rely on modelled estimates to approximate the burden, resulting in wide uncertainty intervals. The barriers to building microbiology capacity in LMICs have been well described,57 and overcoming these challenges requires greater investment and prioritisation of bacteriology capacity, and the development of national antimicrobial resistance surveillance networks.
+
+Our study has several limitations, many of which are the result of data sparsity. Input data for each modelling step has incomplete geographical coverage and is of varying quality for many LMICs, and we did not have data for 61 countries or territories for all three of our modelling steps. Hence, the locations where the burden is estimated to be the greatest are where the data are most scarce, which is an issue exacerbated by age-targeted surveillance protocols; this data scarcity should underscore the urgency of improving capacity and surveillance systems in LMICs. The identification of deaths in which infection had a role relied on International Classification of Diseases (ICD) coded deaths, which does not perfectly correlate with expert chart review. Our estimates of lower respiratory infections and urinary tract infections split infections into community-acquired versus hospital-acquired infections on the basis of whether ICD coding indicated the infection was an underlying or intermediate cause of death. However, this approach has not previously been validated and has the risk of misclassification. We assumed the same pathogen distribution among culture-negative as among culture-positive infections. This assumption could overestimate pathogens that are easier to detect and underestimate pathogens that are difficult to culture with the use of standard microbiological techniques (eg, culture-negative endocarditis might be caused by Bordetella spp or Coxiella spp, bacteria that are notoriously difficult to culture, although we expect the effect of this particular example on overall bacteria aetiologies to be quite small). We have a residual polybacterial category in which multiple possible causative pathogens were identified for a single infection; however, because many of these infections involved one or more of the 33 bacteria we investigated, this approach leads to an underestimation of the specified bacteria. Additionally, passive microbial surveillance data could have had some selection bias, particularly if cultures were not routinely drawn. In some locations, cultures might be drawn only if someone is critically ill or has not responded to treatment, which might overestimate more virulent or more resistant pathogens. Finally, this study is supported by the framework of and estimates from the GBD study, which has its own limitations that have been discussed elsewhere.3
+
+The 7·7 million deaths associated with the 33 pathogens we investigated are deaths that occurred in people with infections caused by one of these bacteria; however, we cannot conclusively state that if all infections due to these 33 pathogens were eliminated, then 7·7 million deaths would have been prevented. Many of these deaths were identified as deaths due to sepsis, when the underlying cause was non-infectious. In a subset of these deaths, the underlying cause of death might have been so severe that a death would have occurred whether or not the infection took place. For example, someone with terminal pancreatic cancer who dies from E coli peritonitis is counted the same as a neonate who dies of neonatal sepsis due to E coli. However, most of the estimated 7·7 million deaths occurred when the infection with one of the 33 bacteria was the underlying cause of death, and in those cases, we could reasonably assume that those deaths would have been prevented if the infection had not occurred. Placing infections into discrete categories of clinical syndromes opens up the discussion of how to address bloodstream infections, a syndrome that is not always distinct from other clinical syndromes and is often an intermediary between a precipitating infection and sepsis. Our approach to infectious syndromes used a hierarchy process in which bloodstream infections were ranked the lowest—ie, if bloodstream infection was reported alongside any other infectious syndrome, the other infectious syndrome was used. In other words, bloodstream infections as reported here were primary bloodstream infections for which the point of entry or other associated infectious syndromes could not be identified.
+
+In summary, our analyses show that bacterial infections are a clinically significant cause of health loss globally. Five pathogens were each involved in more than 500 000 deaths in 2019: S aureus, E coli, S pneumoniae, K pneumoniae, and P aeruginosa. Three infectious syndromes, each responsible for more than 1 million deaths in 2019, comprised more than 75% of deaths due to bacterial infections. A sobering reality is that a high burden of treatable infections occurred in very young age groups. Building stronger health systems with more robust diagnostic infrastructure, improved diagnostic imaging and microbiological capacity, and standardised workflows are crucial steps to address this substantial burden, together with implementing appropriate infection control and antimicrobial stewardship measures. Essential prevention strategies include improved access to safe drinking water and sanitation facilities, increased rates of vaccination, new vaccine development, and improving access to the appropriate antibiotic for an infection. There is a need to reconcile the right to antimicrobial access with non-judicious use, particularly with regard to expensive and newer generation antimicrobials. Predictive mathematical modelling and further advancements in genomic epidemiology of infections will increase insights at the global level to understand pathogens' evolution, epidemiology, and pathogenesis, and will better inform future approaches.
+
+\newpage
+# References {#references}
+<div id="refs"></div>
+
+1
+UN
+Sustainable Development Goals
+https://www.un.org/sustainabledevelopment/sustainable-development-goals/, 
+
+2
+UN
+Millennium Development Goals
+https://www.un.org/millenniumgoals/, 
+
+3
+GBD 2019 Diseases and Injuries Collaborators
+Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019
+Lancet, 396 (2020), pp. 1204-1222
+
+4
+KE Rudd, SC Johnson, KM Agesa, et al.
+Global, regional, and national sepsis incidence and mortality, 1990–2017: analysis for the Global Burden of Disease Study
+Lancet, 395 (2020), pp. 200-211
+
+5
+N Valentine, O Solar, A Irwin, L Nolen, A Prasad
+Health equity at the country level: building capacities and momentum for action. A report on the country stream of work in the commission on social determinants of health, World Health Organization, Geneva (2008)
+https://cdn.who.int/media/docs/default-source/documents/social-determinants-of-health/sdhe_csw_final_report.pdf?sfvrsn=d1752088_5&download=true, 
+
+6
+GBD 2016 Causes of Death Collaborators
+Global, regional, and national age-sex specific mortality for 264 causes of death, 1980–2016: a systematic analysis for the Global Burden of Disease Study 2016
+Lancet, 390 (2017), pp. 1151-1210
+
+7
+UN
+Department of Economic and Social Affairs. The 17 goals
+https://sdgs.un.org/goals, 
+
+8
+SP Luby, M Agboatwalla, DR Feikin, et al.
+Effect of handwashing on child health: a randomised controlled trial
+Lancet, 366 (2005), pp. 225-233
+
+9
+JT Poolman
+Expanding the role of bacterial vaccines into life-course vaccination strategies and prevention of antimicrobial-resistant infections
+NPJ Vaccines, 5 (2020), p. 84
+
+10
+JP Lynch 3rd, GG Zhanel
+Streptococcus pneumoniae: epidemiology, risk factors, and strategies for prevention
+Semin Respir Crit Care Med, 30 (2009), pp. 189-209
+
+11
+L Evans, A Rhodes, W Alhazzani, et al.
+Executive summary: surviving sepsis campaign: international guidelines for the management of sepsis and septic shock 2021
+Crit Care Med, 49 (2021), pp. 1974-1982
+
+12
+CW Seymour, F Gesten, HC Prescott, et al.
+Time to treatment and mortality during mandated emergency care for sepsis
+N Engl J Med, 376 (2017), pp. 2235-2244
+
+13
+KL O'Brien, LJ Wolfson, JP Watt, et al.
+Burden of disease caused by Streptococcus pneumoniae in children younger than 5 years: global estimates
+Lancet, 374 (2009), pp. 893-902
+
+14
+MC Thigpen, CG Whitney, NE Messonnier, et al.
+Bacterial meningitis in the United States, 1998–2007
+N Engl J Med, 364 (2011), pp. 2016-2025
+
+15
+US Centers for Disease Control and Prevention
+GBS Surveillance Report 2019. Centers for Disease Control and Prevention, 2019
+https://www.cdc.gov/abcs/downloads/GBS_Surveillance_Report_2019.pdf, 
+
+16
+B Wahl, KL O'Brien, A Greenbaum, et al.
+Burden of Streptococcus pneumoniae and Haemophilus influenzae type b disease in children in the era of conjugate vaccines: global, regional, and national estimates for 2000–15
+Lancet Glob Health, 6 (2018), pp. e744-e757
+
+17
+Centers for Disease Control and Prevention
+Active Bacterial Core surveillance (ABCs). July 19, 2021
+https://www.cdc.gov/abcs/index.html, 
+
+18
+European Centre for Disease Prevention and Control
+European Antimicrobial Resistance Surveillance Network (EARS-Net)
+https://www.ecdc.europa.eu/en/about-us/partnerships-and-networks/disease-and-laboratory-networks/ears-net, 
+
+19
+Antimicrobial Resistance Collaborators
+Global burden of bacterial antimicrobial resistance in 2019: a systematic analysis
+Lancet, 399 (2022), pp. 629-655
+
+20
+Institute for Health Metrics and Evaluation
+Protocol for the Global Burden of Diseases, Injuries, and Risk Factors Study (GBD), version 4.0. March, 2020
+https://www.healthdata.org/sites/default/files/files/Projects/GBD/March2020_GBD%20Protocol_v4.pdf, 
+
+21
+MJ Page, JE McKenzie, PM Bossuyt, et al.
+The PRISMA 2020 statement: an updated guideline for reporting systematic reviews
+BMJ, 372 (2021), p. n71
+
+22
+GA Stevens, L Alkema, RE Black, et al.
+Guidelines for Accurate and Transparent Health Estimates Reporting: the GATHER statement
+PLoS Med, 13 (2016), p. e1002056
+
+23
+J Nocedal, SJ Wright
+Numerical optimization, second edition, Springer-Verlag, New York, NY (2006)
+
+24
+WHO
+Immunization agenda 2030: a global strategy to leave no one behind, World Health Organization, Geneva (2020)
+April
+https://www.who.int/publications/m/item/immunization-agenda-2030-a-global-strategy-to-leave-no-one-behind, 
+
+25
+The Lancet
+Antimicrobial resistance: time to repurpose the Global Fund
+Lancet, 399 (2022), p. 335
+
+26
+B Allegranzi, P Bischoff, S de Jonge, et al.
+New WHO recommendations on preoperative measures for surgical site infection prevention: an evidence-based global perspective
+Lancet Infect Dis, 16 (2016), pp. e276-e287
+
+27
+E Tacconelli
+Global priority list of antibiotic-resistant bacteria to guide research, discovery, and development of new antibiotics. World Health Organization, 2017
+https://policycommons.net/artifacts/1818147/global-priority-list-of-antibiotic-resistant-bacteria-to-guide-research-discovery-and-development/2555608/, 
+
+28
+WHO
+Antimicrobial resistance: global report on surveillance, World Health Organization, Geneva (2014)
+https://apps.who.int/iris/handle/10665/112642, 
+
+29
+JR Ledesma, J Ma, A Vongpradith, et al.
+Global, regional, and national sex differences in the global burden of tuberculosis by HIV status, 1990–2019: results from the Global Burden of Disease Study 2019
+Lancet Infect Dis, 22 (2022), pp. 222-241
+
+30
+MG Head, RJ Brown, M-L Newell, JAG Scott, J Batchelor, R Atun
+The allocation of US$105 billion in global funding from G20 countries for infectious disease research between 2000 and 2017: a content analysis of investments
+Lancet Glob Health, 8 (2020), pp. e1295-e1304
+
+31
+JP Burke
+Infection control - a problem for patient safety
+N Engl J Med, 348 (2003), pp. 651-656
+
+32
+MC Freeman, ME Stocks, O Cumming, et al.
+Hygiene and health: systematic review of handwashing practices worldwide and update of health effects
+Trop Med Int Health, 19 (2014), pp. 906-916
+
+33
+J Wolf, A Prüss-Ustün, O Cumming, et al.
+Assessing the impact of drinking water and sanitation on diarrhoeal disease in low- and middle-income settings: systematic review and meta-regression
+Trop Med Int Health, 19 (2014), pp. 928-942
+
+34
+AM Smith, VC Huber
+The unexpected impact of vaccines on secondary bacterial infections following influenza
+Viral Immunol, 31 (2018), pp. 159-173
+
+35
+HI Nakaya, O Bruna-Romero
+Is the gut microbiome key to modulating vaccine efficacy?
+Expert Rev Vaccines, 14 (2015), pp. 777-779
+
+36
+Society of Critical Care Medicine (SCCM)
+Surviving sepsis campaign 2021 adult guidelines
+https://sccm.org/SurvivingSepsisCampaign/Guidelines/Adult-Patients, 
+
+37
+M Singer, CS Deutschman, CW Seymour, et al.
+The third international consensus definitions for sepsis and septic shock (sepsis-3)
+JAMA, 315 (2016), pp. 801-810
+
+38
+M Miethke, M Pieroni, T Weber, et al.
+Towards the sustainable discovery and development of new antibiotics
+Nat Rev Chem, 5 (2021), pp. 726-749
+
+39
+World Bank
+World development indicators. 2021
+https://data.worldbank.org/indicator, 
+
+40
+P Araya, J Hug, G Joy, F Oschmann, S Rubinstein
+The impact of water and sanitation on diarrhoeal disease burden and over-consumption of antibiotics. London School of Economics and Political Science, March, 2016
+https://amr-review.org/sites/default/files/LSE%20AMR%20Capstone.pdf, 
+
+41
+I Frost, J Craig, J Joshi, K Faure, R Laxminarayan
+Access barriers to antibiotics, Center for Disease Dynamics, Economics & Policy, Washington, DC (2019)
+
+42
+T Kelesidis, ME Falagas
+Substandard/counterfeit antimicrobial drugs
+Clin Microbiol Rev, 28 (2015), pp. 443-464
+
+43
+NTT Do, HTL Vu, CTK Nguyen, et al.
+Community-based antibiotic access and use in six low-income and middle-income countries: a mixed-method approach
+Lancet Glob Health, 9 (2021), pp. e610-e619
+
+44
+R Laxminarayan, T Van Boeckel, I Frost, et al.
+The Lancet Infectious Diseases Commission on antimicrobial resistance: 6 years later
+Lancet Infect Dis, 20 (2020), pp. e51-e60
+
+45
+WHO, UNICEF
+Ending preventable child deaths from pneumonia and diarrhoea by 2025: the integrated Global Action Plan for Pneumonia and Diarrhoea (GAPPD). 2013
+https://apps.who.int/iris/bitstream/handle/10665/79207/WHO_FWC_MCA_13_01_eng.pdf?sequence=1, 
+
+46
+WHO
+Sepsis, World Health Organization, Geneva (2020)
+Aug 26
+https://www.who.int/news-room/fact-sheets/detail/sepsis, 
+
+47
+WHO
+Global report on the epidemiology and burden of sepsis: current evidence, identifying gaps and future directions, World Health Organization, Geneva (2020)
+https://apps.who.int/iris/handle/10665/334216, 
+
+48
+M Sartelli, A Chichom-Mefire, FM Labricciosa, et al.
+The management of intra-abdominal infections from a global perspective: 2017 WSES guidelines for management of intra-abdominal infections
+World J Emerg Surg, 12 (2017), p. 29
+
+49
+BC Alkire, NP Raykar, MG Shrime, et al.
+Global access to surgical care: a modelling study
+Lancet Glob Health, 3 (2015), pp. e316-e323
+
+50
+H Holmer, A Lantz, T Kunjumen, et al.
+Global distribution of surgeons, anaesthesiologists, and obstetricians
+Lancet Glob Health, 3 (suppl 2) (2015), pp. S9-11
+
+51
+H Yadav, D Shah, S Sayed, S Horton, LF Schroeder
+Availability of essential diagnostics in ten low-income and middle-income countries: results from national health facility surveys
+Lancet Glob Health, 9 (2021), pp. e1553-e1560
+
+52
+WHO
+WHO model list of essential medicines - 22nd list, 2021. Geneva: World Health Organization, Sept 30, 2021
+https://www.who.int/publications-detail-redirect/WHO-MHP-HPS-EML-2021.02, 
+
+53
+SCH Wen, Y Ezure, L Rolley, et al.
+Gram-negative neonatal sepsis in low- and lower-middle-income countries and WHO empirical antibiotic recommendations: a systematic review and meta-analysis
+PLoS Med, 18 (2021), p. e1003787
+
+ 
+54
+WHO
+WHO antibiotic categorization. Geneva: World Health Organization
+https://aware.essentialmeds.org/groups, 
+
+55
+WHO
+Global tuberculosis report 2020. Geneva: World Health Organization, Oct 15, 2020
+https://www.who.int/publications/i/item/97892400131
+
+56
+C Lim, EA Ashley, RL Hamers, et al.
+Surveillance strategies using routine microbiology for antimicrobial resistance in low- and middle-income countries
+Clin Microbiol Infect, 27 (2021), pp. 1391-1399
+
+57
+J Jacobs, L Hardy, M Semret, et al.
+Diagnostic bacteriology in district hospitals in sub-Saharan Africa: at the forefront of the containment of antimicrobial resistance
+Front Med (Lausanne), 6 (2019), p. 205
